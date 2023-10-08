@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dado</title>
+    <style>
+        .dado {
+            height: 150px;
+            width: 150px;
+            background-image: url('sin_lanzar.JPG');
+            background-position: center;
+            background-repeat: no-repeat;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+    <h1>Pulsa para lanzar el dado:</h1>
+    </p>
+    <br><br>
+
+    <div>
+        <input type="button" class="dado" id="boton">
+    </div>
+
+    <script>
+
+        let boton = document.getElementById('boton');
+
+        boton.addEventListener('click', function () {
+
+            let lanzamiento = Math.floor(Math.random() * 6) + 1;
+
+            boton.style.backgroundImage = "url('cara_" + lanzamiento + ".JPG')";
+
+        });
+    </script>
+
+</body>
+
+</html>

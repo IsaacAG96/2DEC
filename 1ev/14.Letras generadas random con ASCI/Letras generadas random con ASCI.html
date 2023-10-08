@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <input type="text" id="mostrar"></input>
+    <script>
+
+        let palabra = "";
+
+
+        for (let contador = 0; contador < 6; contador++) {
+
+            palabra = palabra + String.fromCharCode(Math.floor(Math.random() * (90 - 65)) + 65);
+
+        }
+
+        document.getElementById("mostrar").value = palabra;
+
+    </script>
+</body>
+
+</html>
