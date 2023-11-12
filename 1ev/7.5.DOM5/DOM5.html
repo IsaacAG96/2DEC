@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Dado el siguiente código html desarrollar el código script que permita definir la propiedad 
+    style del párrafo para controlar el borde, color de texto y color de fondo:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternando el estilo de un párrafo</title>
+</head>
+<body>
+<p>Párrafo de texto</p>
+<button type='button' onclick='alternarBorde();'>Alternar borde</button>
+<button type='button' onclick='alternarColor();'>Alternar color</button>
+<button type='button' onclick='alternarFondo();'>Alternar fondo</button>
+ </body>
+</html>
+
+-->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM5</title>
+</head>
+
+<body>
+
+    <p>Párrafo de texto</p>
+    <button type='button' onclick='alternarBorde();'>Alternar borde</button>
+    <button type='button' onclick='alternarColor();'>Alternar color</button>
+    <button type='button' onclick='alternarFondo();'>Alternar fondo</button>
+
+
+    <script>
+
+        let elemento = document.getElementsByTagName("p")[0];
+
+        function alternarBorde() {
+            elemento.style.border = numAleatorioPeque() + 'px solid ' + `rgb(${numAleatorio()},${numAleatorio()},${numAleatorio()})`;
+
+        }
+
+        function alternarColor() {
+            elemento.style.color = `rgb(${numAleatorio()},${numAleatorio()},${numAleatorio()})`;
+
+        }
+
+        function alternarFondo() {
+            elemento.style.backgroundColor = `rgb(${numAleatorio()},${numAleatorio()},${numAleatorio()})`;
+
+        }
+
+        function numAleatorio() {
+            return Math.floor(Math.random() * 256);
+        }
+
+        function numAleatorioPeque() {
+            return Math.floor(Math.random() * 20 - 1) + 1;
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

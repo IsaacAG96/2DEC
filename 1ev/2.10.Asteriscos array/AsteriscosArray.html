@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteriscos Array</title>
+</head>
+<!--
+    Mostrar asteriscos para un array.
+Genera un array con 20 números aleatorios del 1 al 50.
+Recorre el array mostrando tantos asteriscos como se indique en el número de cada 
+elemento.
+-->
+
+<body>
+
+
+
+    <script>
+        let array_numeros = [];
+
+        for (let contador = 0; contador < 5; contador++) {
+            let numero = Math.floor(Math.random() * 5) + 1;
+            array_numeros.push(numero);
+        }
+
+        for (let contador2 = 0; contador2 < array_numeros.length; contador2++) {
+
+            for (let contador3 = 0; contador3 < array_numeros[contador2]; contador3++) {
+                
+                document.write("*")
+            }
+
+            document.write("<br>");
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

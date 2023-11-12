@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado polialfabético</title>
+</head>
+<!--
+Como alternativa al cifrado César, se plantea el cifrado polialfabético.
+Para implementar este tipo de cifrado se pedirá al cliente que introduzca un texto. Este texto 
+servirá para cifrar nuestro mensaje.
+Como norma respecto al texto se tiene que debe contener números y la clave se cifrará de 
+forma cíclica.
+Ejemplo:
+Mensaje: Este es el mensaje.
+Clave: 12345
+Mensaje cifrado: Fuwi%fu#iq!ohrxblh
+El mensaje cifrado se forma de esta manera:
+E+1=F; s+2=u; t+3=w; e+4=i; “ “ + 5=%; e+1=f; ……
+
+
+-->
+
+<body>
+    <p>Introduce una clave: <input type="text" name="clave"></p>
+    <p>Introduce un texto: <input type="text" name="texto"></p>
+    <input type="button" value="Enviar"
+        onclick="cifrar(document.getElementsByTagName('input')[0].value,document.getElementsByTagName('input')[1].value)">
+
+    <p>Resultado: <input type="text" name="resultado" placeholder="Aqui aparecera el resultado"></p>
+
+
+
+    <script>
+
+        let array_texto;
+        let resultado = "";
+        let contador_clave = 0;
+
+        function cifrar(clave, texto) {
+
+
+            resultado = "";
+            array_clave = clave.split("");
+            array_texto = texto.split("");
+
+
+            for (let contador = 0; contador < array_texto.length; contador++) {
+
+
+
+
+
+                array_texto[contador] = parseInt(array_texto[contador].charCodeAt()) + parseInt(array_clave[contador_clave]);
+
+                /*
+                Codigo mio sin testear:
+
+                                // COMO HACER QUE DE Z PASE A  A,DE Y A B ,ETC
+                
+                                if (array_texto[contador] > 90 && array_texto[contador] < 97) {
+                
+                                    array_texto[contador] =
+                                        array_texto[contador] = array_texto[contador] - 26;
+                
+                                }
+                                else if (array_texto[contador] > 122) {
+                                    array_texto[contador] = array_texto[contador] - 26;
+                
+                                }
+                
+                */
+
+                /*CHAT GPT
+                
+                                let array_texto;
+                                let resultado = "";
+                
+                                function cifrar(clave, texto) {
+                                    resultado = "";
+                                    array_texto = texto.split("");
+                
+                                    for (let contador = 0; contador < array_texto.length; contador++) {
+                                        const charCode = array_texto[contador].charCodeAt();
+                
+                                        if (charCode >= 65 && charCode <= 90) { // Caracteres mayúsculas
+                                            array_texto[contador] = String.fromCharCode(((charCode - 65 + parseInt(clave)) % 26) + 65);
+                                        } else if (charCode >= 97 && charCode <= 122) { // Caracteres minúsculas
+                                            array_texto[contador] = String.fromCharCode(((charCode - 97 + parseInt(clave)) % 26) + 97);
+                                        }
+                
+                                        resultado += array_texto[contador];
+                                    }
+                
+                                    document.getElementsByTagName('input')[3].value = resultado;
+                                }
+                */
+
+                resultado = resultado + String.fromCharCode(array_texto[contador]);
+
+                contador_clave++;
+
+                if (contador_clave == array_clave.length) {
+                    contador_clave = 0;
+                }
+
+            }
+
+            document.getElementsByTagName('input')[3].value = resultado;
+
+        }
+
+
+    </script>
+</body>
+
+</html>

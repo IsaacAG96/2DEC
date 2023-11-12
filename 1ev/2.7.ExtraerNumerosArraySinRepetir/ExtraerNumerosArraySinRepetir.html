@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear array sin numeros repetidos</title>
+</head>
+
+
+<!--
+    1.- Dado el siguiente array:4,0,3,4,7,3,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1
+Utilizando los métodos propios del objeto Array, desarrollar el código script que permita 
+obtener un array sin elementos repetidos.
+-->
+
+<body>
+
+    <input type="text" value="" name="resultado">
+
+    <script>
+        let array_ini = [4, 0, 3, 4, 7, 3, 5, 8, 1, 8, 8, 0, 2, 3, 1, 2, 5, 7, 3, 2, 5, 1];
+        let array_fin = new Array();
+
+        for (let contador = 0; contador < array_ini.length; contador++) {
+
+            if (!array_fin.includes(array_ini[contador])) {
+                array_fin.push(array_ini[contador]);
+            }
+
+        }
+        array_fin.sort();
+
+        document.getElementsByName("resultado")[0].value = array_fin;
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de imagenes</title>
+</head>
+
+<body>
+    <!--
+        Tenemos una imagen en medio y debajo dos botones,uno
+        de + y otro de menos,al hacer click recorre la lista de 10 imagenes.
+        Al retroceder desde la primera nos mandara a la ultima y al avanzar la ultima nos mandara a la primera
+    -->
+
+    <input type="button" value="+" onclick=cambiar(this.value)></input>
+
+    <p><img src="imagen_0.jpg" name="imagen"></p>
+
+    <input type="button" value="-" onclick=cambiar(this.value)></input>
+
+
+    <script>
+
+
+        let contador = 0;
+
+        function cambiar(value) {
+
+            switch (value) {
+
+                case "+":
+
+                    if (contador < 9) {
+                        contador++;
+                    }
+                    else if (contador == 9) {
+                        contador = 0;
+                    }
+                    document.getElementsByName("imagen")[0].src = "imagen_" + contador + ".jpg";
+                    //  document.images["imagen"].src = "imagen_" + contador + ".jpg";
+
+
+                    break;
+
+
+
+                case "-":
+                    if (contador > 0) {
+                        contador--;
+
+                    }
+                    else if (contador == 0) {
+                        contador = 9;
+
+                    }
+                    document.getElementsByName("imagen")[0].src = "imagen_" + contador + ".jpg";
+                    //  document.images["imagen"].src = "imagen_" + contador + ".jpg";
+                    break;
+
+
+            }
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

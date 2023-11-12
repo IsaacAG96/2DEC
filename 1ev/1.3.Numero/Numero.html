@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numero</title>
+</head>
+
+<body>
+    <script>
+
+        let numero = prompt("Introduce un numero"); /*Si se cancela leera "Null",si se introduce un numero devolvera false y
+         si se introduce una letra o espacio devolvera true"*/
+
+        if (numero == null) {
+            alert("Cancelado"); /*Tiene que ir lo primero*/
+        }
+        else if (isNaN(numero) == true) {/* False indica que ES un String*/
+
+            alert("No es un numero")
+        }
+        else if (isNaN(numero) == false) {/* False indica que NO ES un String*/
+            alert("Es un numero")
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

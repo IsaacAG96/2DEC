@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Dado el siguiente código html desarrollar el código script que, utilizando el tipo de datos NamedNodeMap, permita:
+1.	Mediante una función, crear un atributo “class” para el párrafo.
+2.	Mediante otra función, obtener y visualizar en un alert los atributos del elemento párrafo.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM</title>
+		<style>
+			.claseParrafo {color:red;}
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+		<p id='parrafo'>El estilo de este p&aacute;rrafo est&aacute; controlado por los botones.</p>		
+		<button type='button' onclick='crearAtributo();'>Cambiar clase</button>
+		<button type='button' onclick='verAtributos();'>Ver todos los atributos</button>
+	</body>
+</html>
+
+-->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DOM4</title>
+	<style>
+		.claseParrafo {
+			color: red;
+		}
+	</style>
+	<script>
+		function crearAtributo() {
+
+			document.getElementById("parrafo").setAttribute("color", "red");
+		}
+
+		
+		function verAtributos() {
+
+			let texto = document.getElementById("parrafo").attributes;
+
+			if (texto.length > 0) {
+				for (let contador = 0; contador < texto.length; contador++) {
+
+					let nombre_atributo = texto[contador].name;
+					let valor_atributo = texto[contador].value;
+
+					alert(`${nombre_atributo}: ${valor_atributo}`);
+				}
+			} else {
+				alert('El elemento párrafo no tiene atributos.');
+			}
+
+		}
+
+
+	</script>
+</head>
+
+
+<body>
+	<p id='parrafo'>El estilo de este p&aacute;rrafo est&aacute; controlado por los botones.</p>
+	<button type='button' onclick='crearAtributo();'>Cambiar clase</button>
+	<button type='button' onclick='verAtributos();'>Ver todos los atributos</button>
+</body>
+
+</html>

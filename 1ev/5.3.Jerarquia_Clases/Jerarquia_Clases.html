@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerarquia de Clases</title>
+</head>
+<!--
+   Con este ejercicio se pretende trabajar la creación de una jerarquía de clases y
+    utilizarlas en un programa para ejemplificar los conceptos de herencia y polimorfismo.
+Desarrollar una interfaz que permita gestionar los miembros de un centro de formación, profesorado y alumnado.
+Deberá permitir crear una clase padre llamada Miembro y otras dos clases hijas llamadas Profesor y Alumno:
+La clase padre tendrá tres propiedades (nombre, alta, estado) y un método llamado cobrar 
+que permita mostrar un mensaje con el nombre del miembro.
+Las clases hijas añadirán una propiedad:
+Número de alumnos, para el objeto profesor.
+Número de asignaturas, para el objeto Alumno.
+Y un método que añada un mensaje al de la clase padre especificando el nº alumnos o nº asignaturas, según corresponda.
+En la caja informe, se deberá visualizar el resultado de recopilar la información para cada instancia creada.
+
+ 
+
+-->
+
+<body>
+
+    <h1>DATOS COMUNES DEL OBJETO MIEMBRO</h1>
+    <p>Nombre: <input contenteditable="true" value="ola" type="text"></p>
+    <p>Alta: <input type="date"></p>
+    <br>
+    <h3>Selecciona el tipo de miembro</h3>
+    <p><input type="radio" name="tipo" value="profesor" onclick="habilitarCampos()"> Profesor</p>
+    <p><input type="radio" name="tipo" value="alumno" onclick="habilitarCampos()"> Alumno</p>
+    <h3>Seleccione el estado del miembro</h3>
+    <p><input type="radio" name="estado" value="vigente"> Vigente</p>
+    <p><input type="radio" name="estado" value="suspendido"> Suspensión</p>
+    <p><input type="radio" name="estado" value="terminado"> Terminado</p>
+    <br>
+    <h2>Datos del profesorado</h2>
+    <p>Numero de alumnos: <input type="number"></p>
+    <br>
+    <h2>Datos del alumnado</h2>
+    <p>Numero de asignaturas: <input type="number"></p>
+    <h3>Informe del objeto miembro</h3>
+    <textarea cols="30" rows="10"></textarea>
+    <br>
+    <input type="button" value="Visualizar" onclick="resultado()">
+
+    <script>
+
+        function resultado() {
+            let nombre = document.getElementsByTagName("input")[0].value;
+            let fecha = document.getElementsByTagName("input")[1].value;
+            let tipo = document.querySelector('input[name="tipo"]:checked').value;
+            let estado = document.querySelector('input[name="estado"]:checked').value;
+
+            if (tipo == "alumno") {
+
+                let cantidad_Asignaturas = parseInt(document.getElementsByTagName("input")[8].value);
+
+                let alumno1 = new Alumnado(nombre, fecha, estado, cantidad_Asignaturas);
+
+                let resultado = alumno1.mostrar() + alumno1.cantidadAsignaturas();
+
+                document.getElementsByTagName("textarea")[0].value = resultado;
+
+            }
+
+            else if (tipo == "profesor") {
+
+                let cantidad_alumnos = parseInt(document.getElementsByTagName("input")[7].value);
+
+                let profesor1 = new Profesor(nombre, fecha, estado, cantidad_alumnos);
+
+                let resultado = profesor1.mostrar() + profesor1.cantidadAlumnos();
+
+                document.getElementsByTagName("textarea")[0].value = resultado;
+
+            }
+        }
+
+       
+
+
+
+        function habilitarCampos() {
+            let tipo = document.querySelector('input[name="tipo"]:checked').value;
+            let cantidad_alumnos = document.getElementsByTagName("input")[7];
+            let cantidad_Asignaturas = document.getElementsByTagName("input")[8];
+
+            if (tipo == "profesor") {
+                cantidad_alumnos.disabled = false;
+                cantidad_Asignaturas.disabled = true;
+
+            } else if (tipo == "alumno") {
+                cantidad_alumnos.disabled = true;
+                cantidad_Asignaturas.disabled = false;
+            }
+
+        }
+
+        class Miembro {
+            constructor(nombre, alta, estado) {
+                this.nombre = nombre;
+                this.alta = alta;
+                this.estado = estado;
+            }
+            mostrar() {
+                return this.nombre + " se dio de alta la fecha " + this.alta + " y se encuentra en estado : " + this.estado;
+
+            }
+
+        }
+        class Profesor extends Miembro {
+            constructor(nombre, alta, estado, num_alumnos) {
+                super(nombre, alta, estado);
+                this.num_alumnos = num_alumnos;
+            }
+            cantidadAlumnos() {
+                return " y tiene " + this.num_alumnos + " alumnos";
+
+            }
+
+
+        }
+        class Alumnado extends Miembro {
+            constructor(nombre, alta, estado, num_asignaturas) {
+                super(nombre, alta, estado);
+                this.num_asignaturas = num_asignaturas;
+            }
+
+            cantidadAsignaturas() {
+                return " y tiene " + this.num_asignaturas + " asignaturas";
+
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

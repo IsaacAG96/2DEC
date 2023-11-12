@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Por ejemplo, en el siguiente código se ha asignado un script al botón que permite 
+    acceder al atributo src del segundo elemento img. ¿Qué otras formas de acceder a ese 
+    elemento se le ocurren haciendo uso de las propiedades y métodos citadas anteriormente?
+
+001 	<!DOCTYPE html>
+002 	<html>
+003 		<head>
+004 			<title>DOM</title>
+005 			<script>
+006 				function verSrcDeLaPrimeraImagen(){
+007 					alert(document.images[0].src);
+008 				}
+009 			</script>
+010 		</head>
+011		<body>
+012			<img id='primera_imagen' class='imagenes' src='imagen1.jpeg' />		
+013			<br />
+014			<img id='segunda_imagen' class='imagenes' src='imagen2.jpeg' />
+015			<button type='button' onclick='verSrcDeLaPrimeraImagen();'>
+016				Ver src de la primera imagen
+017			</button>
+018		</body>
+019	</html>
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM6</title>
+    <script>
+        function verSrcDeLaPrimeraImagen() {
+            //Opcion profe:
+            alert(document.images[1].src);
+
+
+            //Otras opciones:
+            alert(document.getElementsByClassName("imagenes")[1].getAttribute("src"));
+            alert(document.getElementById("segunda_imagen").getAttribute("src"));
+            alert(document.getElementsByTagName("img")[1].getAttribute("src"));
+            alert(document.getElementsByTagName("img")[1].getAttribute("src"));
+
+        }
+    </script>
+
+</head>
+
+
+<body>
+    <img id='primera_imagen' class='imagenes' src='imagen1.jpeg' />
+    <br />
+    <img id='segunda_imagen' class='imagenes' src='imagen2.jpeg' />
+
+    <button type='button' onclick='verSrcDeLaPrimeraImagen();'>
+        Ver src de la segunda imagen
+    </button>
+</body>
+
+</html>

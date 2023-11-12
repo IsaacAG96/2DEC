@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM2</title>
+</head>
+<!--
+    Dado el siguiente código html desarrollar el código script que permita:
+1.	Obtener el valor del atributo ‘onclick’ del elemento botón. Para ello se utilizará uno de los  métodos DOM que permiten identificar un elemento dentro de un tipo de elemento html.
+2.	Segundo, se utilizará el método attributes y métodos que permitan recuperar el nombre del atributo buscado. 
+3.	El valor se mostrará en el párrafo.
+
+<!DOCTYPE html>
+<html>
+<body>
+ <p>Haz Click sobre el botón para capturar el "value" del atributo 'onclick' del elemento botón.</p>
+<button onclick="Invocalaf()">Pruébalo</button>
+<p><strong>Nota:</strong> Internet Explorer 8 y anteriores no soportan el método "getNamedItem".</p>
+<p id="demo"></p>
+<script>
+</script>
+</body>
+</html>
+
+-->
+
+<body>
+    <p>Haz Click sobre el botón para capturar el "value" del atributo 'onclick' del elemento botón.</p>
+    <button onclick="Invocalaf()">Pruébalo</button>
+    <p><strong>Nota:</strong> Internet Explorer 8 y anteriores no soportan el método "getNamedItem".</p>
+    <p id="demo"></p>
+    <script>
+
+        let valor = document.getElementsByTagName('button')[0].getAttribute('onclick');
+
+        function Invocalaf() {
+            alert(valor);
+        }
+
+
+    </script>
+</body>
+
+</html>

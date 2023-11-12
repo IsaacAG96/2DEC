@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+   Dado el siguiente código html desarrollar el código script que permita:
+Identifica el elemento H1 utilizando método de tipo Tag.
+Crear el atributo “class” del elemento H1.
+Asignar al atributo anterior el valor “democlass” utilizando el tipo NamedNodeMap.
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.democlass {
+    color: red;
+}
+</style>
+</head>
+<body>
+<h1>Hola Mundo</h1>
+<p>Haz click sobre el botón para crear el atributo "class" de H1 y asignarle "democlass".</p>
+<button onclick="Invocalaf()">Inténtalo</button>
+<script>
+</script>
+</body>
+</html>
+ 
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM3</title>
+    <style>
+        .democlass {
+            color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <h1>Hola Mundo</h1>
+
+    <p>Haz click sobre el botón para crear el atributo "class" de H1 y asignarle "democlass".</p>
+
+    <button onclick="Invocalaf()">Inténtalo</button>
+
+    <script>
+
+        function Invocalaf() {
+            document.getElementsByTagName("h1")[0].setAttribute("class", "democlass");
+
+        }
+
+    </script>
+</body>
+
+</body>
+
+</html>

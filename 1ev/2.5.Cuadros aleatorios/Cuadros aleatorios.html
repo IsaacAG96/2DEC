@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuadros aleatorios</title>
+    <style>
+        div {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<!--
+    Crear una aplicación web que muestre 2000 cuadrados de color aleatorio de 50 * 50 píxeles.
+Su posición en la pantalla será también aleatoria.
+Se deberá visualizar una pantalla similar a la siguiente imagen:
+Tomemos cada uno de esos cuadrados como una serie de “div”.
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Cuadrados aleatorios</title>
+<style>
+div{
+position:fixed;
+width:50px;
+height:50px;
+}
+</style>
+</head>
+<body>
+<script>
+</script>
+</body>
+</html>
+-->
+
+<body>
+
+    <script>
+
+        let rojo;
+        let verde;
+        let azul;
+        let arriba;
+        let izquierda;
+
+        for (let contador = 0; contador < 2000; contador++) {
+
+            rojo = Math.floor(Math.random() * 256);
+            verde = Math.floor(Math.random() * 256);
+            azul = Math.floor(Math.random() * 256);
+            arriba = Math.floor(Math.random() * 101) + "%";
+            izquierda = Math.floor(Math.random() * 101) + "%";
+
+
+            let crear_div = document.createElement('div');
+            crear_div.style.backgroundColor = `rgb(${rojo},${verde},${azul})`;
+            crear_div.style.top = arriba;
+            crear_div.style.left = izquierda;
+            document.body.appendChild(crear_div);
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

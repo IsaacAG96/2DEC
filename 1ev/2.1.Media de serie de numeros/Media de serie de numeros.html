@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media de 7 numeros</title>
+</head>
+<!--
+    Crear una aplicación web que permita introducir números a través de un input. Se introduce
+y, al hacer click sobre el botón Añadir, se deberá almacenar en un Array. También se podría
+pedir a través de un prompt.
+Se finalizará cuando el usuario introduzca el número 0.
+Al final indicará la media de los números introducidos en un input de tipo text de salida.
+Si en algún momento no es un número lo que escribe el usuario, se le pide de nuevo.
+Si al utilizar prompt, se cancela cualquier cuadro de lectura, el programa termina y se indica
+que el usuario ha cancelado y no se mostrará la media.
+-->
+
+<body>
+    <p>Numero: <input type="text"></p>
+    <input type="button" value="Enviar" onclick="envio(parseFloat(document.getElementsByTagName('input')[0].value))">
+    <script>
+
+        let array = [];
+        let media = 0;
+
+
+        function envio(numero) {
+            if (numero == 0) {
+                for (let contador = 0; contador < array.length; contador++) {
+                    media = media + array[contador];
+
+                }
+                media = media / array.length;
+                alert("La media es: " + media);
+                stop;
+
+            }
+            else {
+
+                array.push(numero);
+                document.getElementsByTagName('input')[0].value = "";
+
+                alert("Enviado!")
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

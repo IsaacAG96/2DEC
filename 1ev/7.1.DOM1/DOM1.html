@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Dado el siguiente código html desarrollar el código script que permita:
+1.	Averiguar si el elemento párrafo tiene atributos.
+2.	Mostrar en la caja de texto el nombre de la propiedad y su valor.
+Se recomienda el uso de los métodos de tipos de datos NamedNodeMap (hasAttributes, Attributes, etc…)
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Ejemplo uso Attributes</title>
+  <script type="text/javascript">   
+  </script>
+ </head>
+<body>
+ <p id="parrafo" style="color: green;">Párrafo sencillo</p>
+ <form action="">
+  <p>
+    <input type="button" value="Muestra el nombre y valor del primer attribute" onclick="listAttributes();"><br><br>
+    <textarea name="" id="result" cols="30" rows="10"></textarea>
+  </p>
+ </form></body>
+	</html>
+
+-->
+
+<head>
+  <title>Ejemplo uso Attributes</title>
+
+  <script type="text/javascript">
+
+    function listAttributes() {
+      let texto = document.getElementById("parrafo").attributes;
+
+
+      if (texto.length > 0) {
+        for (let contador = 0; contador < texto.length; contador++) {
+          let nombre_atributo = texto[contador].name; //document.getElementById("parrafo").attributes[contador].name
+          let valor_atributo = texto[contador].value; //document.getElementById("parrafo").attributes[contador].value
+          document.getElementById("result").value = `${nombre_atributo}: ${valor_atributo}\n`;
+        }
+      } else {
+        resultTextArea.value = 'El elemento párrafo no tiene atributos.';
+      }
+    }
+
+   
+  </script>
+
+
+</head>
+
+<body>
+  <p id="parrafo" style="color: green;" >Párrafo sencillo</p>
+  <form action="">
+    <p>
+      <input type="button" value="Muestra el nombre y valor del primer attribute" onclick="listAttributes();"><br><br>
+      <textarea name="" id="result" cols="30" rows="10"></textarea>
+    </p>
+  </form>
+</body>
+
+</html>

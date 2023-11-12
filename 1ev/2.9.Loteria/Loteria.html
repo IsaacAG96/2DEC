@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loteria</title>
+    <!---Llenar un Set con 6 numeros del 1 al 49(sin que se repitan en el set) y contar cuantos intentos ha realizado-->
+</head>
+
+<body>
+
+    <p>
+    <h1>Juego de la Primitiva</h1>
+    </p>
+
+    <input type="button" value="A jugar" onclick=bola()></input><br><br>
+    <p>Numeros: <input type="text" value="" disabled="true"></input></p><br><br>
+    <p>Intentos: <input type="text" value="" disabled="true"></input></p><br><br>
+
+    <script>
+
+        let listado = new Set();
+        let intentos = 0;
+        let acumular_valores = "";
+        let numero_mostrar = "";
+
+
+        function bola() {
+            let contador = 1;
+            let numero = Math.floor(Math.random() * 49) + 1;
+
+
+            if (listado.has(numero) == false) {
+                listado.add(numero);
+                intentos++;
+
+
+                for (let valor of listado) {
+                    acumular_valores = "";
+
+                    if (contador < 6) {
+                        acumular_valores = acumular_valores + valor + ",";
+                        contador++;
+                    }
+                    else if (contador == 6) {
+                        acumular_valores = acumular_valores + valor;
+
+                        document.getElementsByTagName("input")[0].disabled = true;
+                    }
+
+                }
+                numero_mostrar = numero_mostrar + acumular_valores;
+                document.getElementsByTagName("input")[1].value = numero_mostrar;
+                document.getElementsByTagName("input")[2].value = intentos;
+
+            }
+            else if (listado.has(numero) == true) {
+                intentos++;
+                document.getElementsByTagName("input")[2].value = intentos;
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

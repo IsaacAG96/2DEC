@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CharAT random</title>
+</head>
+<!--
+    Desarrollar una página web que pida al cliente una frase a través de una caja de texto. Y,
+cada vez que el cliente haga clic sobre el botón “Ver”, deberá mostrar un carácter aleatorio
+en otra caja de texto correspondiente a la frase introducida.
+Por otro lado, habrá un botón que permita obtener, de manera aleatoria, el carácter de
+referencia de parada. Es decir, este carácter se utilizará para poner fin a la generación
+aleatoria a través de “Ver”.
+-->
+
+<body>
+    <p>Frase: <input type="text"></p>
+    <input type="button" value="Ver" onclick="trocear(document.getElementsByTagName('input')[0].value)">
+    <p>Resultado Aleatorio: <input type="text" placeholder="Aqui veras el resultado"></p>
+    <input type="button" value="Parada"> <!--NO ENTIENDO-->
+
+
+    <script>
+
+        function trocear(frase) {
+            let array = frase.split("");
+            let azar = Math.floor(Math.random() * (array.length - 0) + 0);
+            let test = document.getElementsByTagName('input')[2].value
+
+            document.getElementsByTagName('input')[2].value = array[azar];
+
+        }
+
+    </script>
+
+</body>
+
+</html>

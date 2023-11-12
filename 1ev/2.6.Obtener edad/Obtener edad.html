@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtener edad</title>
+</head>
+
+<body>
+
+    <p>
+    <h1>Calculo de la Edad utilizando los milisegundos</h1>
+    </p>
+    <p>Año : <input type="number" id="entrada_año"></p>
+    <p>Mes : <input type="number" id="entrada_mes"></p>
+    <p>Dia : <input type="number" id="entrada_dia"></p>
+
+    <input type="button" value="Calcular" onclick="calcular_edad()"></input>
+
+
+
+
+    <script>
+
+
+
+
+
+
+
+        function calcular_edad() {
+            let año = document.getElementById("entrada_año").value;
+            let mes = document.getElementById("entrada_mes").value;
+            let dia = document.getElementById("entrada_dia").value;
+
+            let fecha_nacimiento = new Date(año, mes, dia);
+            let fecha_actual = Date.now();
+            let milisegundos = fecha_actual - fecha_nacimiento;
+            let resultado = "";
+            let contador_milisegundos = milisegundos;
+            let contador_segundos = 0;
+            let contador_minutos = 0;
+            let contador_horas = 0;
+            let contador_dias = 0;
+            let contador_meses = 0;
+            let contador_años = 0;
+
+            for (let contador = 0; contador < 6; contador++) {
+
+                if (contador_milisegundos >= 1000) {
+                    contador_segundos = Math.floor(contador_milisegundos / 1000);
+                    contador_milisegundos = contador_milisegundos % 1000;  //contador_meses = contador_meses - (contador_años * 12);
+                }
+                else if (contador_segundos >= 60) {
+                    contador_minutos = Math.floor(contador_segundos / 60);
+                    contador_segundos = contador_segundos % 60;  //contador_meses = contador_meses - (contador_años * 12);
+
+                }
+                else if (contador_minutos >= 60) {
+                    contador_horas = Math.floor(contador_minutos / 60);
+                    contador_minutos = contador_minutos % 60; //    contador_minutos = contador_minutos - (contador_horas * 60);
+
+                }
+                else if (contador_horas >= 60) {
+                    contador_dias = Math.floor(contador_horas / 24);
+                    contador_horas = contador_horas % 24; // contador_horas = contador_horas - (contador_dias * 24);
+
+                }
+                else if (contador_dias >= 30) {
+                    contador_meses = Math.floor(contador_dias / 30);
+                    contador_dias = contador_dias % 30; //  contador_dias = contador_dias - (contador_meses * 30);
+
+                }
+                else if (contador_meses >= 12) {
+                    contador_años = Math.floor(contador_meses / 12);
+                    contador_meses = contador_meses % 12; //contador_meses = contador_meses - (contador_años * 12);
+
+                }
+            }
+
+
+            resultado = "La persona nacida el " + dia + "/"
+                + mes + "/" + año + " , ha vivido :" + contador_años + " años," + contador_meses + " meses,"
+                + contador_dias + " dias," + contador_horas + " horas," + contador_minutos
+                + " minutos," + contador_segundos + " segundos y " + contador_milisegundos + " milisegundos.";
+
+            alert(resultado);
+
+
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Creación de un objeto con sintaxis de clase y constructor.
+     Desarrolla una interfaz de usuario orientada a contratar viajes. 
+     Tiene que permitir pedir al cliente el origen del trayecto, el destino,
+      número de días que solicita. Deberá poder mostrar al cliente el precio 
+      del viaje (que será obtenido a partir de una estructura de datos tipo Map-> lugar-precio) y un informe de lo contratado.-->
+
+<body>
+    <h1>Inicio</h1>
+    <p>Origen: <input type="texto" name="origen"></p>
+    <p>Destino: <input type="texto" name="destino" placeholder="Francia,Italia o Madrid"></p>
+    <p>Número de dias:<input type="number" name="num_dias"></p>
+    <input type="button" value="Enviar" name="envio" onclick="resultado()">
+    <h1>Resultado</h1>
+    <p>Precio: <input type="number" name="precio" value=""></p>
+    <p>Recopilación:<br> <textarea rows="4" cols="10"></textarea></p>
+
+    <script>
+
+        let Paises_Precio = new Map();
+        Paises_Precio.set("Francia", "40");
+        Paises_Precio.set("Italia", "45");
+        Paises_Precio.set("Madrid", "200");
+
+        class Viaje {
+            constructor(origen, destino, num_dias) {
+                this.origen = origen;
+                this.destino = destino;
+                this.num_dias = num_dias;
+            }
+            respuesta() {
+
+                document.getElementsByTagName("input")[4].value = parseInt(Paises_Precio.get(this.destino)) * parseInt(this.num_dias);
+                document.getElementsByTagName("textarea")[0].value = "El viaje con origen "
+                    + this.origen + "\n  y destino " + this.destino + "\n para una estancia de "
+                    + this.num_dias + " dias,tiene un precio de " + document.getElementsByTagName("input")[4].value + " €.";
+
+            }
+        }
+
+
+        function resultado() {
+
+            let viaje1 = new Viaje(document.getElementsByTagName("input")[0].value,
+                document.getElementsByTagName("input")[1].value,
+                document.getElementsByTagName("input")[2].value);
+
+            viaje1.respuesta();
+
+        }
+
+    </script>
+
+</body>
+
+</html>

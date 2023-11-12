@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexOf</title>
+</head>
+<!--
+   Desarrollar una página web en cuyo script se permita definir las siguientes variables:
+miCadena="cabrales, torta del casar, idiazabal"
+miCadenaMayusculas="Cabrales, Torta del Casar, Idiazabal"
+Se le pedirá al cliente que escriba en un inptu, o prompt, la variedad de queso que prefiere.
+Se mostrará un mensaje informando de la posición que ocupa en la cadena miCadena o
+miCadenaMayusculas, en función de cómo lo haya escrito el cliente. 
+-->
+<style>
+    input {
+        width: 250px;
+    }
+</style>
+
+<body>
+
+    <p>Variedad de queso a elegir: <input type="text" id="prueba" placeholder="Cabrales,Torta del Casar o Idiazabal">
+    </p>
+    <input type="button" value="Enviar" onclick="comprobar(document.getElementsByTagName('input')[0].value) ">
+
+    <script>
+        let miCadena = "cabrales,torta del casar,idiazabal";
+        let miCadena_array = miCadena.split(',');
+
+        let miCadenaMayusculas = "Cabrales,Torta del Casar,Idiazabal";
+        let miCadenaMayusculas_array = miCadenaMayusculas.split(',');
+
+
+        function comprobar(texto) {
+
+
+            texto = texto.trim();
+
+            if (miCadena_array.includes(texto)) {
+                alert("Minuscula");
+                alert("Posicion de inicio: " + miCadena.indexOf(texto));
+
+            }
+            else if (miCadenaMayusculas_array.includes(texto)) {
+                alert("Mayuscula");
+                alert("Posicion de inicio: " + miCadenaMayusculas_array.indexOf(texto));
+            }
+            else {
+                alert("No existe");
+            }
+        }
+
+
+        // DEBE MOSTRARSE ASI LO DE LA POSICION??
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+</head>
+<!--
+    Crea, inicializa, un objeto denominado 
+    usuario que permita autenticar a la persona que quiere 
+    iniciar sesión en la aplicación web.
+-->
+
+<body>
+    <p>Usuario: <input type="text"></p>
+    <p>Contraseña: <input type="text"></p>
+    <input type="button" value="Login"
+        onclick="usuario.login(document.getElementsByTagName('input')[0].value,document.getElementsByTagName('input')[1].value)">
+    <script>
+
+        let usuario = new Object();
+        usuario.user = "PaquitoXZ";
+        usuario.clave = "ElMejor";
+        usuario.login = function (user, clave) {
+            if ((usuario.user == user) && (usuario.clave == clave)) {
+
+                alert("Datos Correctos");
+            }
+            else {
+                alert("Datos Incorrectos");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
